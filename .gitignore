@@ -1,10 +1,11 @@
 .DS_Store
-
 # models
 *.tflite
 *.onnx
 *.bin
 *.pth
+#for gpl ext module
+image_analysis_modules/ext/
 
 
 # Byte-compiled / optimized / DLL files
