@@ -1,10 +1,6 @@
 # cvgui-linux: Yet Another Image Analysis Platform for linux
 v4l2-ctl and OpenCV based camera in Tkinter GUI platform.
 
-## Requirements
-
-rembg
-
 ## License
 Planning to be distributed by Apache 2.0 (**advice wanted**)
 
@@ -31,46 +27,55 @@ Some GPL dependent image analysis modules are detached from the core component t
 |-------------|----------|------|----|
 | iSeed Counter 640x640 Yolov5 onnx     |　GPLv3  | https://github.com/ultralytics/yolov5/blob/master/LICENSE | inherits yolov5 license|
 
+## Requirements
 
-## Installation
-Install only the core module components
-```
-git clone XXXXXX
-```
-OR Install with ext module (GPL)
-```
-git clone --recursive XXXXX
-```
-OR Install ext module (GPL) afterwards
-```
-cd PATH/TO/THE/REPO
-git submodule update --init --recursive
-```
+t.b.d.
 
 ```commandline
 sudo apt-get install python3-tk python3-pil.imagetk
 pip install numpy opencv-python scipy scikit-image matplotlib
-
 pip install onnxruntime
 ```
 
+## Installation
+
+Install only the core module components
+```
+t.b.d
+```
+OR Install with ext module (GPL)
+```
+t.b.d. git clone --recursive XXXXX
+```
+OR Install ext module (GPL) afterwards
+```
+t.b.d.
+cd PATH/TO/THE/REPO
+git submodule update --init --recursive
+```
+
+## Run
+
+```
+python main.py
+```
 
 ## Image Acquisition
 
 - set_acquire_config
-- 
-if not self.config_q.full():
-    self.config_q.put(self.acquire_config)
+- if not self.config_q.full():
+  self.config_q.put(self.acquire_config)
 
 ## Commercially Available UVC-camera compatibility
 | Name | Link | Note |
 |-------------|------|------|
-| TD          | セル内で<br>改行 |      |
+| t.b.d.    | t.b.d. | t.b.d. |
 
-
-
-## known issues
+## Known Issues
 torch.hub models seems to not work under multiprocess
 
-## インターバル撮影
+## To Do Lists
+
+- manual instructions (organize dependencies)
+- interval image acquisition mode
 
