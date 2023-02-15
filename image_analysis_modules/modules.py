@@ -364,51 +364,51 @@ class Coleochaete(BaseModule):
         except:
             pass
         return image
-#
-# class Coleochaete(BaseModule):
-#
-#     description = "Coleochaete anomaly analysis"
-#     path = os.path.dirname(__file__)
-#     model_file = os.path.join(path, 'coleochaete/u2netp_256x256_full_integer_quant_edgetpu.tflite')
-#
-#
-#     def load(self):
-#         self.interpreter = make_interpreter(self.model_file)
-#         self.interpreter.allocate_tensors()
-#
-#     def analyze(self, image):
-#         result = {}
-#         # bboxes, scores, class_ids = self.yolox_module.inference(image)
-#         # result["bboxes"] = bboxes
-#         # result["scores"] = scores
-#         # result["class_ids"] = class_ids
-#         h,w,c = image.shape
-#         image = cv2.resize(image, dsize=(256,256))
-#         # mask = Image.fromarray(mask)
-#         # common.set_input(self.interpreter, mask)
-#         common.input_tensor(self.interpreter)[:, :] = image
-#         self.interpreter.invoke()
-#         pred = segment.get_output(self.interpreter)
-#         pred = pred[...,0] # 320,320,1 -> 320
-#         pred = cv2.resize(pred, dsize=(w, h))
-#         pred = cv2.cvtColor(pred, cv2.COLOR_GRAY2BGR)
-#
-#         result["pred"] = pred
-#
-#         return result
-#
-#     @staticmethod
-#     def vis(image, result):
-#         orig_image  = image.copy()
-#         #image = cv2.resize(image, dsize=(, 256))
-#         mask = result["pred"]
-#         images = []
-#         images.append(image)
-#         images.append(mask)
-#         images = np.array(images)
-#
-#         image = make_grid(images, nrow=2,padding=1)
-#         return image
+
+class Coleochaete2(BaseModule):
+
+    description = "Coleochaete anomaly analysis2"
+    path = os.path.dirname(__file__)
+    model_file = os.path.join(path, 'coleochaete/u2netp_256x256_full_integer_quant_edgetpu.tflite')
+
+
+    def load(self):
+        self.interpreter = make_interpreter(self.model_file)
+        self.interpreter.allocate_tensors()
+
+    def analyze(self, image):
+        result = {}
+        # bboxes, scores, class_ids = self.yolox_module.inference(image)
+        # result["bboxes"] = bboxes
+        # result["scores"] = scores
+        # result["class_ids"] = class_ids
+        h,w,c = image.shape
+        image = cv2.resize(image, dsize=(256,256))
+        # mask = Image.fromarray(mask)
+        # common.set_input(self.interpreter, mask)
+        common.input_tensor(self.interpreter)[:, :] = image
+        self.interpreter.invoke()
+        pred = segment.get_output(self.interpreter)
+        pred = pred[...,0] # 320,320,1 -> 320
+        pred = cv2.resize(pred, dsize=(w, h))
+        pred = cv2.cvtColor(pred, cv2.COLOR_GRAY2BGR)
+
+        result["pred"] = pred
+
+        return result
+
+    @staticmethod
+    def vis(image, result):
+        orig_image  = image.copy()
+        #image = cv2.resize(image, dsize=(, 256))
+        mask = result["pred"]
+        images = []
+        images.append(image)
+        images.append(mask)
+        images = np.array(images)
+
+        image = make_grid(images, nrow=2,padding=1)
+        return image
 
 class YoloXNano(BaseModule):
 
